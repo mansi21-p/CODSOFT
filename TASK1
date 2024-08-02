@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+void showcalculation();
+double add(double, double);
+double subtract(double, double);
+double multiply(double, double);
+double divide(double, double);
+
+int main() {
+    double no1, no2;
+    char perform;
+    bool contrun = true;
+
+    while (contrun) {
+        (showcalculation);
+        cout<<"Enter the first num: ";
+        cin>>no1;
+        cout<<"Enter an operator('+' for addition, '-' for subtraction, '*' for multiplication, '/' for division): ";
+        cin>>perform;
+        cout<<"Enter the second num: ";
+        cin>>no2;
+
+        switch (perform) {
+            case '+':
+                cout<<"Result of num1 + num2 is= " <<add(no1, no2)<<endl;
+                break;
+            case '-':
+                cout<<"Result of num1 - num2 is= " <<subtract(no1, no2)<<endl;
+                break;
+            case '*':
+                cout<<"Result of num1 * num2 is= " <<multiply(no1, no2)<<endl;
+                break;
+            case '/':
+                if (no2 != 0) {
+                    cout<<"Result of num1 / num2 is= " <<divide(no1, no2)<<endl;
+                } else {
+                    cout<<"Error: indefine."<<endl;
+                }
+                break;
+            default:
+                cout<<"Error: Invalid operator."<<endl;
+                break;
+        }
+        char choose;
+        cout<<"User want to perform another operation? (y/n): ";
+        cin>>choose;
+        if (choose=='n'||choose=='N') {
+            contrun = false;
+        }
+    }
+    cout<<"Task completed"<<endl;
+    return 0;
+}
+
+void showcalculation() {
+    cout<<"\nSimple Calculator"<<endl;
+    cout<<"Choose an operation to perform: "<<endl;
+    cout<<"+ :Addition"<<endl;
+    cout<<"- :Subtraction"<<endl;
+    cout<<"* :Multiplication"<<endl;
+    cout<<"/ :Division"<<endl;
+}
+
+double add(double x,double y){
+    return x+y;
+}
+
+double subtract(double x,double y){
+    return x-y;
+}
+
+double multiply(double x,double y){
+    return x*y;
+}
+
+double divide(double x,double y){
+    return x/y;
+}
